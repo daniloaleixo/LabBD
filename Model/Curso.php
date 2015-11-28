@@ -58,4 +58,9 @@ class Curso extends AppModel {
 		}
 		return false;
 	}
+	
+	public function iniciar_curso($curso_id) {
+		$this->id = $curso_id;
+		return ($this->saveField('publicado', true));
+	}
 }

@@ -42,7 +42,9 @@
 			<h2>Cursos</h2>
 			<ul>
 				<?php foreach ($cursos as $item){?>
-					<li><?php echo $this->Html->link(__($item['cursos']['titulo']), array('controller' => 'cursos', 'action' => 'view', $item['cursos']['id'])); ?> </li>
+					<?php if ($item['cursos']['publicado'] == true):?>
+						<li><?php echo $this->Html->link(__($item['cursos']['titulo']), array('controller' => 'cursos', 'action' => 'view', $item['cursos']['id'])); ?> </li>
+					<?php endif;?>
 				<?php }?>
 			</ul>
 		</div>

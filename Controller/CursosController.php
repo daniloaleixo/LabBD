@@ -47,6 +47,16 @@ class CursosController extends AppController {
 		}
 	}
 
+	public function iniciar_curso($curso_id) {
+		if ($this->Curso->iniciar_curso($curso_id) ) {
+			$this->Session->setFlash(__('Curso ativado com sucesso'));
+			return $this->redirect(array('controller' => 'cursos', 'action' => 'view', $curso_id));
+		}
+		else {
+			$this->Session->setFlash(__('Não foi possivel ativar o curso'));
+		}
+	}
+	
 	public function edit($id = null) {
 		if (!$this->Curso->exists($id)) {
 			throw new NotFoundException(__('Invalid curso'));

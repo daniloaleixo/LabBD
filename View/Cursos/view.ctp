@@ -36,6 +36,9 @@
 		<div class="col-md-6 actions actions">
 			<?php if ($e_prof || $e_tutor):?>
 				<?php echo $this->Html->link(__('Criar nova aula'), array('controller' => 'aulas', 'action' => 'nova_aula', $curso['Curso']['id'])); ?>
+			<?php endif;?><br><br><br>
+			<?php if ($e_prof && $curso['Curso']['publicado'] == false):?>
+				<?php echo $this->Html->link(__('Iniciar curso'), array('controller' => 'cursos', 'action' => 'iniciar_curso', $curso['Curso']['id'])); ?>
 			<?php endif;?>
 		</div>
 		<div class="col-md-6 actions"><!-- AULAS -->
