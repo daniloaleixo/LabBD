@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `referencia_externa` (
   CONSTRAINT `ref_fk2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `avaliou` (
+CREATE TABLE IF NOT EXISTS `avaliacaos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `aula_id` int(11) NOT NULL,
@@ -230,3 +230,47 @@ CREATE TABLE IF NOT EXISTS `avaliou` (
   CONSTRAINT `avaliou_fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `avaliou_fk2` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE VIEW media_aulas AS  
+SELECT 
+  aula_id, 
+  titulo, 
+  AVG(nota) AS media_nota
+FROM avaliacaos
+GROUP BY aula_id;
+
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               5.5.46-0ubuntu0.14.04.2 - (Ubuntu)
+-- Server OS:                    debian-linux-gnu
+-- HeidiSQL Version:             9.3.0.4984
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Dumping structure for table labbd.posts
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `aula_id` int(11) DEFAULT NULL,
+  `curso_id` int(11) DEFAULT NULL,
+  `texto` text,
+  `created` date NOT NULL,
+  `em_resposta_a` int(11) DEFAULT NULL,
+  `titulo` text,
+  PRIMARY KEY (`id`),
+  KEY `aula_id` (`aula_id`),
+  KEY `user_id` (`user_id`),
+  KEY `curso_id` (`curso_id`),
+  CONSTRAINT `post_fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `post_fk2` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`id`),
+  CONSTRAINT `post_fk3` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
