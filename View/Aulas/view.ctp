@@ -16,6 +16,10 @@
 				<li>
 					<?php echo $this->Html->link("Arquivo ".$item['lista_materiais']['arq_id'], ['controller' => 'arquivo_subidos', 'action' => 'view', $item['lista_materiais']['arq_id']]);?>
 				</li><br>
+				<?php elseif(!is_null($item['lista_materiais']['ref_id'])):?>
+				<li>
+					<?php echo $this->Html->link("Link ".$item['lista_materiais']['ref_id'], ['controller' => 'referencia_externas', 'action' => 'view', $item['lista_materiais']['ref_id']]);?>
+				</li><br>
 				<?php endif;?>
 			<?php }?>
 		</div>
