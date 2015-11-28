@@ -218,3 +218,15 @@ CREATE TABLE IF NOT EXISTS `referencia_externa` (
   CONSTRAINT `ref_fk1` FOREIGN KEY (`material_id`) REFERENCES `materials` (`id`),
   CONSTRAINT `ref_fk2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `avaliou` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `aula_id` int(11) NOT NULL,
+  `nota` int(2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `aula_id` (`aula_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `avaliou_fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `avaliou_fk2` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

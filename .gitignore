@@ -1,2 +1,3 @@
 .gitignore~
 /tmp/
+/Config/database.php

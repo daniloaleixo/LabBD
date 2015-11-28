@@ -337,3 +337,280 @@ Stack Trace:
 #10 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(CursosController), Object(CakeRequest))
 #11 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #12 {main}
+2015-11-28 13:01:16 Error: [MissingActionException] Action MaterialsController::novo_material() could not be found.
+Exception Attributes: array (
+  'controller' => 'MaterialsController',
+  'action' => 'novo_material',
+)
+Request URL: /ime/labbd/materials/novo_material/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(MaterialsController), Object(CakeRequest))
+#2 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-11-28 13:15:19 Error: Fatal Error (1): Call to a member function find() on a non-object in [/var/www/html/ime/labbd/Controller/MaterialsController.php, line 33]
+2015-11-28 13:15:19 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /ime/labbd/materials/novo_material/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/i...', 33)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/i...', 33, Array)
+#2 /cake/2.5.3/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/i...', 33, Array)
+#3 /cake/2.5.3/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-11-28 13:19:35 Error: Fatal Error (1): Call to a member function find() on a non-object in [/var/www/html/ime/labbd/Controller/MaterialsController.php, line 33]
+2015-11-28 13:19:35 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /ime/labbd/materials/novo_material/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/i...', 33)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/i...', 33, Array)
+#2 /cake/2.5.3/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/i...', 33, Array)
+#3 /cake/2.5.3/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-11-28 13:51:05 Error: [MissingControllerException] Controller class TextoController could not be found.
+Exception Attributes: array (
+  'class' => 'TextoController',
+  'plugin' => NULL,
+)
+Request URL: /ime/labbd/texto/add
+Stack Trace:
+#0 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-28 13:51:16 Error: [MissingControllerException] Controller class TextoController could not be found.
+Exception Attributes: array (
+  'class' => 'TextoController',
+  'plugin' => NULL,
+)
+Request URL: /ime/labbd/texto/add
+Stack Trace:
+#0 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-28 15:02:14 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'l.aula_id' in 'where clause'
+Request URL: /ime/labbd/aulas/view/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT * FROM l...', Array)
+#2 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT * FROM l...', Array, Array)
+#3 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(537): DboSource->fetchAll('SELECT * FROM l...')
+#4 [internal function]: DboSource->query('SELECT * FROM l...')
+#5 /cake/2.5.3/lib/Cake/Model/Model.php(3328): call_user_func_array(Array, Array)
+#6 /var/www/html/ime/labbd/Controller/AulasController.php(19): Model->query('SELECT * FROM l...')
+#7 [internal function]: AulasController->view('1')
+#8 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AulasController), Array)
+#9 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(AulasController), Object(CakeRequest))
+#11 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-11-28 15:11:16 Error: Fatal Error (4): syntax error, unexpected ']' in [/var/www/html/ime/labbd/View/Aulas/view.ctp, line 14]
+2015-11-28 15:11:16 Error: [FatalErrorException] syntax error, unexpected ']'
+Request URL: /ime/labbd/aulas/view/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/i...', 14)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/i...', 14, Array)
+#2 /cake/2.5.3/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/i...', 14, Array)
+#3 /cake/2.5.3/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-11-28 15:58:01 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /ime/labbd/fonts/glyphicons-regular.woff2
+Stack Trace:
+#0 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-28 15:58:01 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /ime/labbd/fonts/glyphicons-regular.woff
+Stack Trace:
+#0 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-28 15:58:01 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /ime/labbd/fonts/glyphicons-regular.ttf
+Stack Trace:
+#0 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-28 15:58:11 Error: [MissingControllerException] Controller class ArquivoBaixadosController could not be found.
+Exception Attributes: array (
+  'class' => 'ArquivoBaixadosController',
+  'plugin' => NULL,
+)
+Request URL: /ime/labbd/arquivo_baixados/baixa_arquivo/5
+Stack Trace:
+#0 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-28 15:58:23 Error: [MissingControllerException] Controller class ArquivoBaixadosController could not be found.
+Exception Attributes: array (
+  'class' => 'ArquivoBaixadosController',
+  'plugin' => NULL,
+)
+Request URL: /ime/labbd/arquivo_baixados/baixa_arquivo/5
+Stack Trace:
+#0 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-28 15:58:27 Error: [MissingActionException] Action ArquivoSubidosController::baixa_arquivo() could not be found.
+Exception Attributes: array (
+  'controller' => 'ArquivoSubidosController',
+  'action' => 'baixa_arquivo',
+)
+Request URL: /ime/labbd/arquivo_subidos/baixa_arquivo/5
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ArquivoSubidosController), Object(CakeRequest))
+#2 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-11-28 15:59:03 Error: [NotFoundException] The requested file /var/www/html/ime/labbd//tmp/phpUMTlSO was not found or not readable
+Request URL: /ime/labbd/arquivo_subidos/baixa_arquivo/5
+Stack Trace:
+#0 /var/www/html/ime/labbd/Controller/ArquivoSubidosController.php(33): CakeResponse->file('/tmp/phpUMTlSO', Array)
+#1 [internal function]: ArquivoSubidosController->baixa_arquivo('5')
+#2 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ArquivoSubidosController), Array)
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#4 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ArquivoSubidosController), Object(CakeRequest))
+#5 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-11-28 15:59:10 Error: [NotFoundException] The requested file /var/www/html/ime/labbd//tmp/phpUMTlSO was not found or not readable
+Request URL: /ime/labbd/arquivo_subidos/baixa_arquivo/5
+Stack Trace:
+#0 /var/www/html/ime/labbd/Controller/ArquivoSubidosController.php(33): CakeResponse->file('/tmp/phpUMTlSO', Array)
+#1 [internal function]: ArquivoSubidosController->baixa_arquivo('5')
+#2 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ArquivoSubidosController), Array)
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#4 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ArquivoSubidosController), Object(CakeRequest))
+#5 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-11-28 15:59:55 Error: [NotFoundException] The requested file /var/www/html/ime/labbd//tmp/phpUMTlSO was not found or not readable
+Request URL: /ime/labbd/arquivo_subidos/baixa_arquivo/5
+Stack Trace:
+#0 /var/www/html/ime/labbd/Controller/ArquivoSubidosController.php(33): CakeResponse->file('/tmp/phpUMTlSO', Array)
+#1 [internal function]: ArquivoSubidosController->baixa_arquivo('5')
+#2 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ArquivoSubidosController), Array)
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#4 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ArquivoSubidosController), Object(CakeRequest))
+#5 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-11-28 16:00:17 Error: [NotFoundException] The requested file /var/www/html/ime/labbd//tmp/phpUMTlSO was not found or not readable
+Request URL: /ime/labbd/arquivo_subidos/baixa_arquivo/5
+Stack Trace:
+#0 /var/www/html/ime/labbd/Controller/ArquivoSubidosController.php(33): CakeResponse->file('/tmp/phpUMTlSO', Array)
+#1 [internal function]: ArquivoSubidosController->baixa_arquivo('5')
+#2 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ArquivoSubidosController), Array)
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#4 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ArquivoSubidosController), Object(CakeRequest))
+#5 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-11-28 16:02:02 Error: [NotFoundException] The requested file /var/www/html/ime/labbd//tmp/phpmc5P7D was not found or not readable
+Request URL: /ime/labbd/arquivo_subidos/baixa_arquivo/6
+Stack Trace:
+#0 /var/www/html/ime/labbd/Controller/ArquivoSubidosController.php(17): CakeResponse->file('/tmp/phpmc5P7D', Array)
+#1 [internal function]: ArquivoSubidosController->baixa_arquivo('6')
+#2 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ArquivoSubidosController), Array)
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#4 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ArquivoSubidosController), Object(CakeRequest))
+#5 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-11-28 16:02:32 Error: [NotFoundException] The requested file /var/www/html/ime/labbd//tmp/phpmc5P7D was not found or not readable
+Request URL: /ime/labbd/arquivo_subidos/baixa_arquivo/6
+Stack Trace:
+#0 /var/www/html/ime/labbd/Controller/ArquivoSubidosController.php(17): CakeResponse->file('/tmp/phpmc5P7D', Array)
+#1 [internal function]: ArquivoSubidosController->baixa_arquivo('6')
+#2 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ArquivoSubidosController), Array)
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#4 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ArquivoSubidosController), Object(CakeRequest))
+#5 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2015-11-28 17:17:23 Error: [NotFoundException] Invalid referencia externa
+Request URL: /ime/labbd/referencia_externas/view/www.youtube.com
+Stack Trace:
+#0 [internal function]: ReferenciaExternasController->view('www.youtube.com')
+#1 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ReferenciaExternasController), Array)
+#2 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ReferenciaExternasController), Object(CakeRequest))
+#4 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-11-28 17:17:38 Error: Fatal Error (4): syntax error, unexpected '$referenciaExterna' (T_VARIABLE) in [/var/www/html/ime/labbd/View/ReferenciaExternas/view.ctp, line 3]
+2015-11-28 17:17:38 Error: [FatalErrorException] syntax error, unexpected '$referenciaExterna' (T_VARIABLE)
+Request URL: /ime/labbd/referencia_externas/view/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/i...', 3)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/i...', 3, Array)
+#2 /cake/2.5.3/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/i...', 3, Array)
+#3 /cake/2.5.3/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-11-28 17:17:42 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/ime/labbd/View/ReferenciaExternas/view.ctp, line 3]
+2015-11-28 17:17:42 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /ime/labbd/referencia_externas/view/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/i...', 3)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/i...', 3, Array)
+#2 /cake/2.5.3/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/i...', 3, Array)
+#3 /cake/2.5.3/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-11-28 17:17:43 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/ime/labbd/View/ReferenciaExternas/view.ctp, line 3]
+2015-11-28 17:17:43 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /ime/labbd/referencia_externas/view/1
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/i...', 3)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/i...', 3, Array)
+#2 /cake/2.5.3/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/i...', 3, Array)
+#3 /cake/2.5.3/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-11-28 17:24:43 Error: [NotFoundException] Invalid referencia externa
+Request URL: /ime/labbd/referencia_externas/view/www.youtube.com
+Stack Trace:
+#0 [internal function]: ReferenciaExternasController->view('www.youtube.com')
+#1 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ReferenciaExternasController), Array)
+#2 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#3 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ReferenciaExternasController), Object(CakeRequest))
+#4 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-11-28 17:49:55 Error: Fatal Error (1): Call to undefined method ParticipasController::findById() in [/var/www/html/ime/labbd/Controller/ParticipasController.php, line 60]
+2015-11-28 17:49:55 Error: [FatalErrorException] Call to undefined method ParticipasController::findById()
+Request URL: /ime/labbd/participas/add/2
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/html/i...', 60)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/html/i...', 60, Array)
+#2 /cake/2.5.3/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/html/i...', 60, Array)
+#3 /cake/2.5.3/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-11-28 17:53:07 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`labbd`.`participas`, CONSTRAINT `FK_participas_cursos` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`))
+Request URL: /ime/labbd/participas/add/2
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `la...', Array)
+#2 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(1012): DboSource->execute('INSERT INTO `la...')
+#3 /cake/2.5.3/lib/Cake/Model/Model.php(1850): DboSource->create(Object(Participa), Array, Array)
+#4 /var/www/html/ime/labbd/Controller/ParticipasController.php(51): Model->save(Array)
+#5 [internal function]: ParticipasController->add('2')
+#6 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ParticipasController), Array)
+#7 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ParticipasController), Object(CakeRequest))
+#9 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-11-28 17:53:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`labbd`.`participas`, CONSTRAINT `FK_participas_cursos` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`))
+Request URL: /ime/labbd/participas/add/2
+Stack Trace:
+#0 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `la...', Array)
+#2 /cake/2.5.3/lib/Cake/Model/Datasource/DboSource.php(1012): DboSource->execute('INSERT INTO `la...')
+#3 /cake/2.5.3/lib/Cake/Model/Model.php(1850): DboSource->create(Object(Participa), Array, Array)
+#4 /var/www/html/ime/labbd/Controller/ParticipasController.php(51): Model->save(Array)
+#5 [internal function]: ParticipasController->add('2')
+#6 /cake/2.5.3/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ParticipasController), Array)
+#7 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#8 /cake/2.5.3/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ParticipasController), Object(CakeRequest))
+#9 /var/www/html/ime/labbd/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
