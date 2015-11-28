@@ -16,7 +16,7 @@ class AulasController extends AppController {
 		}
 		$options = array('conditions' => array('Aula.' . $this->Aula->primaryKey => $id));
 		$this->set('aula', $this->Aula->find('first', $options));
-		$this->set('materiais', $this->Aula->Material->query('SELECT * FROM materials WHERE aula_id = '.$id));
+		$this->set('materiais', $this->Aula->Material->query('SELECT * FROM lista_materiais, materials WHERE materials.id = lista_materiais.material_id AND materials.aula_id = '.$id));
 	}
 
 	public function nova_aula($curso_id) {

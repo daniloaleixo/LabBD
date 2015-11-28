@@ -1,12 +1,22 @@
 <?php
 App::uses('AppModel', 'Model');
+/**
+ * ReferenciaExterna Model
+ *
+ * @property Material $Material
+ * @property User $User
+ */
+class ReferenciaExterna extends AppModel {
 
-class Material extends AppModel {
-
+/**
+ * Validation rules
+ *
+ * @var array
+ */
 	public $validate = array(
-		'data_criacao' => array(
-			'date' => array(
-				'rule' => array('date'),
+		'material_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -14,9 +24,9 @@ class Material extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'aula_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		'link' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -36,24 +46,30 @@ class Material extends AppModel {
 		),
 	);
 
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+	public function nova_ref($aula_id, $dados_form) {
+		$dados['ReferenciaExterna']['link'] = $dados_form['ReferenciaExterna']['link'];
+		$dados['ReferenciaExterna']['user_id'] = $_SESSION['Auth']['User']['id'];
+		$dados['Material']['aula_id'] = $aula_id;
+		$dados['Material']['uploader_id'] = $_SESSION['Auth']['User']['id'];
+		
+		return $this->saveAll($dados);
+	}
 	public $belongsTo = array(
-		'Aula' => array(
-			'className' => 'Aula',
-			'foreignKey' => 'aula_id',
+		'Material' => array(
+			'className' => 'Material',
+			'foreignKey' => 'material_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'User' => array(
 			'className' => 'User',
-			'foreignKey' => 'uploader_id',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		)
 	);
-
-	public function cria_material($dados_form) {
-		return $this->save($dados_form);
-	}
 }

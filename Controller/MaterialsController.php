@@ -19,19 +19,20 @@ class MaterialsController extends AppController {
 		$this->set('material', $this->Material->find('first', $options));
 	}
 
-	public function add() {
+	public function novo_material($aula_id) {
 		if ($this->request->is('post')) {
 			$this->Material->create();
-			if ($this->Material->save($this->request->data)) {
+			if ($this->Material->cria_material($this->request->data)) {
 				$this->Session->setFlash(__('The material has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The material could not be saved. Please, try again.'));
 			}
 		}
+		$aula = $this->Material->Aula->findById($aula_id);
 		$aulas = $this->Material->Aula->find('list');
-		$uploaders = $this->Material->Uploader->find('list');
-		$this->set(compact('aulas', 'uploaders'));
+		$uploaders = $this->Material->User->find('list');
+		$this->set(compact('aulas', 'uploaders', 'aula'));
 	}
 
 	public function edit($id = null) {
@@ -66,5 +67,9 @@ class MaterialsController extends AppController {
 			$this->Session->setFlash(__('The material could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+
+	public function function_name($param) {
+		;
 	}
 }
