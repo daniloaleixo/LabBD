@@ -46,13 +46,7 @@ class Participa extends AppModel {
 		),
 	);
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * belongsTo associations
- *
- * @var array
- */
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
@@ -69,4 +63,11 @@ class Participa extends AppModel {
 			'order' => ''
 		)
 	);
+	
+	public function cria_permissao($curso_id, $dados_form) {
+		$dados_form['Participa']['data_inicio'] = date('Y-m-d');
+		$dados_form['Participa']['curso_id'] = $curso_id;
+		return $this->save($dados_form);
+		
+	}
 }

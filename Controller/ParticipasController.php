@@ -45,19 +45,20 @@ class ParticipasController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($curso_id) {
 		if ($this->request->is('post')) {
 			$this->Participa->create();
-			if ($this->Participa->save($this->request->data)) {
+			if ($this->Participa->cria_permissao($curso_id, $this->request->data)) {
 				$this->Session->setFlash(__('The participa has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'cursos', 'action' => 'view', $curso_id));
 			} else {
 				$this->Session->setFlash(__('The participa could not be saved. Please, try again.'));
 			}
 		}
 		$users = $this->Participa->User->find('list');
 		$cursos = $this->Participa->Curso->find('list');
-		$this->set(compact('users', 'cursos'));
+		$curso = $this->Participa->Curso->findById($curso_id);
+		$this->set(compact('users', 'cursos', 'curso'));
 	}
 
 /**

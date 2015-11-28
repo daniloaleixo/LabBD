@@ -1,24 +1,11 @@
-<div class="participas form">
+<div class="participas">
 <?php echo $this->Form->create('Participa'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Participa'); ?></legend>
+		<legend><?php echo __('Adicionar Professor/Tutor para: <strong>'.$curso['Curso']['titulo'].'</strong>'); ?></legend>
 	<?php
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('curso_id');
-		echo $this->Form->input('permissao');
-		echo $this->Form->input('data_inicio');
+		echo $this->Form->input('user_id', ['empty' => '-Selecione', 'options' => $users]);
+		echo $this->Form->input('permissao', ['empty' => '-Selecione', 'options' => [PERMISSAO_PROFESSOR => 'Professor', PERMISSAO_TUTOR => 'Tutor']]);
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Participas'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
