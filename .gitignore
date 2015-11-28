@@ -1,6 +1,5 @@
 .gitignore~
 /tmp/
 /Config/database.php
-.htaccess
 /Console/cake.php
 /webroot/index.php
