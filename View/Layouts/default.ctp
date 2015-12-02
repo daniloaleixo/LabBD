@@ -43,6 +43,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
+		<div class=""><?php echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout')); ?></div>
 			<div class="row">
 				<div class="col-md-2 actions" id="default_menu_esquerdo"><!-- MENU LATERAL -->
 

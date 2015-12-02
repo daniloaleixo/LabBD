@@ -8,7 +8,9 @@
 <?php endif;?>
 	<div class="row">
 		<div class="col-md-6">
-			<?php echo $this->Html->link(__('Inserir novo material'), array('controller' => 'materials', 'action' => 'novo_material', $aula['Aula']['id'])); ?>
+			<?php if ($e_prof || $e_tutor):?>
+				<?php echo $this->Html->link(__('Inserir novo material'), array('controller' => 'materials', 'action' => 'novo_material', $aula['Aula']['id'])); ?>
+			<?php endif;?>
 			<br><br><br>
 			<?php echo $this->Html->link(__('Avaliar aula'), array('controller' => 'avaliacaos', 'action' => 'add', $aula['Aula']['id'])); ?>
 			<div>
