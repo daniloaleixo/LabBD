@@ -11,7 +11,8 @@ class AulasController extends AppController {
 	}
 
 	public function view($id = null) {
-		
+		$this->loadModel('Curso');
+		$this->loadModel('Participa');
 		$this->Post = ClassRegistry::init('Post');
 		if (!$this->Aula->exists($id)) {
 			throw new NotFoundException(__('Invalid aula'));
@@ -25,8 +26,23 @@ class AulasController extends AppController {
 		}
 		$topicos = $this->Post->query('SELECT * FROM posts WHERE em_resposta_a IS NULL AND aula_id = '.$id);
 		$options = array('conditions' => array('Aula.' . $this->Aula->primaryKey => $id));
+		$aula = $this->Aula->find('first', $options);
+		
+		$professores = $this->Participa->query('SELECT user_id FROM participas WHERE curso_id = '.$aula['Curso']['id'].' AND permissao = '. PERMISSAO_PROFESSOR);
+		$tutores = $this->Participa->query('SELECT user_id FROM participas WHERE curso_id = '.$aula['Curso']['id'].' AND permissao = '. PERMISSAO_TUTOR);
+		$e_prof = false;
+		$e_tutor = false;
+		$usuario_logado = $_SESSION['Auth']['User']['id'];
+		
+		if (in_array($usuario_logado, $professores) || $this->Curso->is_dono($id) ) {
+			$e_prof = true;
+		}
+		if (in_array($usuario_logado, $tutores) ) {
+			$e_tutor = true;
+		}
 		$this->set(compact('nota', 'topicos'));
-		$this->set('aula', $this->Aula->find('first', $options));
+		$this->set('aula', $aula);
+		$this->set(compact('e_prof', 'e_tutor'));
 		$this->set('materiais', $this->Aula->Material->query('SELECT * FROM lista_materiais, materials WHERE materials.id = lista_materiais.material_id AND materials.aula_id = '.$id));
 	}
 	
