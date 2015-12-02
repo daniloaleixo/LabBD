@@ -15,14 +15,16 @@ class AreasController extends AppController {
 			throw new NotFoundException(__('Invalid area'));
 		}
 		$options = array('conditions' => array('Area.' . $this->Area->primaryKey => $id));
-		$this->set('area', $this->Area->find('first', $options));
+		$this->set('lista_de_areas', $this->Area->find('list'));
+		$this->set('area', $this->Area->findById($id));
 		$this->set('subareas', $this->Area->query('SELECT * FROM areas WHERE e_subarea = '.$id));
 		$this->set('cursos', $this->Area->query('SELECT * FROM cursos WHERE area_pertencente = '.$id));
 	}
 
-	public function add() {
+	public function add($area_id = null) {
 		$this->set('usuario', $_SESSION['Auth']['User']['username']);
 		$this->set('areas', $this->Area->find('list'));
+		$this->set('superarea_id', $area_id);
 		if ($this->request->is('post')) {
 			$this->Area->create();
 			if ($this->Area->save($this->request->data)) {
@@ -64,4 +66,6 @@ class AreasController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	
 }

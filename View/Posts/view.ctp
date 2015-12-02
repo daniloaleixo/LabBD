@@ -4,6 +4,7 @@
 
 <div>
 <h3><?php echo 'TOPICO: '.$topico['Post']['titulo']?></h3>
+<p><?php echo $topico['Post']['texto'];?></p>
 <hr>
 <?php foreach ($replies as $rp){?>
 	<p><?php echo 'Por: <strong>'. $rp['users']['username'] .'</strong> dia: <strong>'. $rp['posts']['created'];?></strong>

@@ -45,11 +45,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<div id="content">
 			<div class="row">
 				<div class="col-md-2 actions" id="default_menu_esquerdo"><!-- MENU LATERAL -->
-					<h2>Grupos</h2>
-					<ul>
-						<li><?php echo $this->Html->link(__('Listar Grupos'), array('controller' => 'groups', 'action' => 'index')); ?></li>
-						<li><?php echo $this->Html->link(__('Criar Grupo'), array('controller' => 'groups', 'action' => 'add')); ?></li>
-					</ul>
+
 					<h2>Usuários</h2>
 					<ul>
 						<li><?php echo $this->Html->link(__('Listar Usuários'), array('controller' => 'users', 'action' => 'index')); ?> </li>

@@ -8,6 +8,13 @@ class Area extends AppModel {
 
 	public $displayField = 'titulo';
 	
+	public $hasMany = array(
+		'Curso' => array(
+			'className' => 'Curso',
+			'foreignKey' => 'area_pertencente',
+		),
+	); 
+	
 	public $validate = array(
 		'titulo' => array(
 			'notEmpty' => array(

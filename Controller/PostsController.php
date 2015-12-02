@@ -45,7 +45,7 @@ class PostsController extends AppController {
 			$this->Post->create();
 			if ($this->Post->criar_topico($curso_id, $aula_id, $this->request->data)) {
 				$this->Session->setFlash(__('The post has been saved.'));
-				return $this->redirect(array('controller' => 'cursos' , 'action' => 'index'));
+				return $this->redirect(array('controller' => 'aulas' , 'action' => 'view', $aula_id));
 			} else {
 				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
 			}
