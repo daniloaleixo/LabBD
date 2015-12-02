@@ -23,9 +23,9 @@ class AulasController extends AppController {
 		else {
 			$nota = $nota[0]['media_aulas']['media_nota'];
 		}
-		$this->set(compact('nota'));
+		$topicos = $this->Post->query('SELECT * FROM posts WHERE em_resposta_a IS NULL AND aula_id = '.$id);
 		$options = array('conditions' => array('Aula.' . $this->Aula->primaryKey => $id));
-// 		$topicos = $this->Post->query('SELECT * FROM topicos WHERE aula_id = '.$id);
+		$this->set(compact('nota', 'topicos'));
 		$this->set('aula', $this->Aula->find('first', $options));
 		$this->set('materiais', $this->Aula->Material->query('SELECT * FROM lista_materiais, materials WHERE materials.id = lista_materiais.material_id AND materials.aula_id = '.$id));
 	}
