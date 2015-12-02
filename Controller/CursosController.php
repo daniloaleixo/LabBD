@@ -34,8 +34,9 @@ class CursosController extends AppController {
 		$this->set(compact('e_prof', 'e_tutor'));
 	}
 
-	public function add() {
+	public function add($area_id = null) {
 		$this->set('areas', $this->Curso->Area->find('list'));
+		$this->set('area_id', $area_id);
 		if ($this->request->is('post')) {
 			$this->Curso->create();
 			if ($this->Curso->cria_curso($this->request->data)) {

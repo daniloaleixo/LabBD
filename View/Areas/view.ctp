@@ -1,32 +1,14 @@
 <div class="areas">
+<?php if (!is_null($area['Area']['e_subarea'])):?>
+<h4><?php echo 'Grande Área: '.$lista_de_areas[$area['Area']['e_subarea']];?></h4>
+<?php endif;?>
 <h2><?php echo __('<strong>Área:</strong> '.$area['Area']['titulo']); ?></h2>
 	<div class="row">
-		<div class="col-md-6">
-			<table>
-				<tr><th><?php echo __('Titulo'); ?></th>
-				<td>
-					<?php echo h($area['Area']['titulo']); ?>
-					&nbsp;
-				</td></tr>
-				<tr><th><?php echo __('É Subarea de'); ?></th>
-				<td>
-					<?php echo h($area['Area']['e_subarea']); ?>
-					&nbsp;
-				</td></tr>
-				<tr><th><?php echo __('Criado Por'); ?></th>
-				<td>
-					<?php echo h($area['Area']['criado_por']); ?>
-					&nbsp;
-				</td></tr>
-				<tr><th><?php echo __('Criado Em'); ?></th>
-				<td>
-					<?php echo h($area['Area']['criado_em']); ?>
-					&nbsp;
-				</td></tr>
-			</table>
-		</div>
+		<?php echo $this->Html->link(__("Criar Subarea"), array('controller' => 'areas', 'action' => 'add', $area['Area']['id'])); ?>
+		<br>
+		<br>
+		<?php echo $this->Html->link(__("Criar Curso"), array('controller' => 'cursos', 'action' => 'add', $area['Area']['id'])); ?>
 	</div>
-<!-- --------------------------------------------------------- -->
 	<div class="row">
 		<div class="col-md-6 actions"><!-- SUBAREAS -->
 			<h2>Subareas</h2>

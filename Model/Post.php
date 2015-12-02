@@ -70,4 +70,14 @@ class Post extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function novo_reply($curso_id, $aula_id, $dados_form) {
+		
+		$dados_form['Post']['user_id'] = $_SESSION['Auth']['User']['id'];
+		$dados_form['Post']['aula_id'] = $aula_id;
+		$dados_form['Post']['curso_id'] = $curso_id;
+		$dados_form['Post']['titulo'] = NULL;
+		$this->create();
+		return $this->save($dados_form);
+	}
 }

@@ -15,7 +15,19 @@ class PostsController extends AppController {
 			throw new NotFoundException(__('Invalid post'));
 		}
 		$options = array('conditions' => array('Post.' . $this->Post->primaryKey => $id));
-		$this->set('post', $this->Post->find('first', $options));
+		$replies = $this->Post->query('SELECT * FROM posts, users WHERE user_id = users.id AND em_resposta_a = '.$id. ' ORDER BY posts.id ASC');
+		$this->set(compact('replies'));
+		$topico = $this->Post->findById($id);
+		$this->set('topico', $topico);
+		if ($this->request->is('post')) {
+			$this->Post->create();
+			if ($this->Post->novo_reply($topico['Curso']['id'], $topico['Aula']['id'], $this->request->data)) {
+				$this->Session->setFlash(__('The post has been saved.'));
+				return $this->redirect(array('controller' => 'posts', 'action' => 'view', $id));
+			} else {
+				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
+			}
+		}
 	}
 
 	public function forum($curso_id, $aula_id) {
@@ -33,7 +45,7 @@ class PostsController extends AppController {
 			$this->Post->create();
 			if ($this->Post->criar_topico($curso_id, $aula_id, $this->request->data)) {
 				$this->Session->setFlash(__('The post has been saved.'));
-				return $this->redirect(array('controller' => 'cursos' , 'action' => 'index'));
+				return $this->redirect(array('controller' => 'aulas' , 'action' => 'view', $aula_id));
 			} else {
 				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
 			}

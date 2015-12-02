@@ -6,8 +6,7 @@
 			<th><?php echo $this->Paginator->sort('titulo'); ?></th>
 			<th><?php echo $this->Paginator->sort('e_subarea', 'É subarea de'); ?></th>
 			<th><?php echo $this->Paginator->sort('criado_por'); ?></th>
-			<th><?php echo $this->Paginator->sort('criado_em'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"><?php echo __(''); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -16,11 +15,8 @@
 		<td><?php echo h($area['Area']['titulo']); ?>&nbsp;</td>
 		<td><?php if (isset($lista_de_areas[$area['Area']['e_subarea']])) {echo $lista_de_areas[$area['Area']['e_subarea']];} else {echo '';} ?>&nbsp;</td>
 		<td><?php echo h($area['Area']['criado_por']); ?>&nbsp;</td>
-		<td><?php echo h($area['Area']['criado_em']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $area['Area']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $area['Area']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $area['Area']['id']), array(), __('Are you sure you want to delete # %s?', $area['Area']['id'])); ?>
+			<?php echo $this->Html->link(__('Acessar Área'), array('action' => 'view', $area['Area']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
