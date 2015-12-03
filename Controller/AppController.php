@@ -1,6 +1,7 @@
 <?php
 
 App::uses('Controller', 'Controller');
+include "../Model/RedisInterface.php";
 
 class AppController extends Controller {
     public $components = array(

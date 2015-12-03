@@ -11,6 +11,14 @@ class AulasController extends AppController {
 	}
 
 	public function view($id = null) {
+		$curso_id = $this->Aula->query('SELECT curso_pertencente FROM aulas WHERE aulas.id = '.$id);
+		$curso_id = $curso_id[0]['aulas']['curso_pertencente'];
+
+		// ranking
+		$redis_interface = new RedisInterface();
+		$redis_connection = $redis_interface->create_connection();
+		$redis_connection->incr("curso_".$curso_id."_counter");
+
 		$this->loadModel('Curso');
 		$this->loadModel('Participa');
 		$this->Post = ClassRegistry::init('Post');
