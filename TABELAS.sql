@@ -194,17 +194,7 @@ CREATE TABLE IF NOT EXISTS `arquivo_subidos` (
   CONSTRAINT `arq_fk2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create view v1 
-select t.material_id as material_id,  t.id as texto_id, s.id as arq_id, conteudo, path  FROM textos as t left JOIN arquivo_subidos as s on t.material_id = s.material_id
-union
-select s.material_id as material_id, t.id as texto_id, s.id as arq_id, conteudo, path  FROM textos as t right JOIN arquivo_subidos as s on t.material_id = s.material_id;
 
-
-
-create view lista_materiais as
-select ts.material_id as material_id,  ts.texto_id, ts.arq_id, conteudo, link, path, r.id as ref_id FROM v1 as ts left JOIN referencia_externas as r on ts.material_id = r.material_id
-union
-select r.material_id as material_id, ts.texto_id, ts.arq_id, conteudo, link, path, r.id as ref_id FROM v1 as ts right JOIN referencia_externas as r on ts.material_id = r.material_id;
 
 
 CREATE TABLE IF NOT EXISTS `referencia_externa` (
@@ -230,14 +220,6 @@ CREATE TABLE IF NOT EXISTS `avaliacaos` (
   CONSTRAINT `avaliou_fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `avaliou_fk2` FOREIGN KEY (`aula_id`) REFERENCES `aulas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE VIEW media_aulas AS  
-SELECT 
-  aula_id, 
-  titulo, 
-  AVG(nota) AS media_nota
-FROM avaliacaos
-GROUP BY aula_id;
 
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
@@ -274,3 +256,24 @@ CREATE TABLE IF NOT EXISTS `posts` (
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+create view v1 
+select t.material_id as material_id,  t.id as texto_id, s.id as arq_id, conteudo, path  FROM textos as t left JOIN arquivo_subidos as s on t.material_id = s.material_id
+union
+select s.material_id as material_id, t.id as texto_id, s.id as arq_id, conteudo, path  FROM textos as t right JOIN arquivo_subidos as s on t.material_id = s.material_id;
+
+
+
+create view lista_materiais as
+select ts.material_id as material_id,  ts.texto_id, ts.arq_id, conteudo, link, path, r.id as ref_id FROM v1 as ts left JOIN referencia_externas as r on ts.material_id = r.material_id
+union
+select r.material_id as material_id, ts.texto_id, ts.arq_id, conteudo, link, path, r.id as ref_id FROM v1 as ts right JOIN referencia_externas as r on ts.material_id = r.material_id;
+
+CREATE VIEW media_aulas AS  
+SELECT 
+  aula_id, 
+  titulo, 
+  AVG(nota) AS media_nota
+FROM avaliacaos
+GROUP BY aula_id;
+
