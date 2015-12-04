@@ -12,38 +12,38 @@ class CursosController extends AppController {
 
 		
 		// abre conexão com o redis e pega contadores de visualizações
-		$redis_interface = new RedisInterface();
-		$redis_connection = $redis_interface->create_connection();
+// 		$redis_interface = new RedisInterface();
+// 		$redis_connection = $redis_interface->create_connection();
 
-		// prepara o ranking e manda para a view
-		$ids_cursos = $this->Curso->query('SELECT * FROM cursos');
-		$ids_cursos = $ids_cursos;
+// 		// prepara o ranking e manda para a view
+// 		$ids_cursos = $this->Curso->query('SELECT * FROM cursos');
+// 		$ids_cursos = $ids_cursos;
 
-		$ranking = array();
+// 		$ranking = array();
 
-		// dicionário de ids e contador de views
-		foreach($ids_cursos as $row) {
-			$id = $row['cursos']['id'];
-			$score = $redis_connection->get("curso_".$id."_counter");
-			$ranking[] = array($id, $score, $row);
-		}
+// 		// dicionário de ids e contador de views
+// 		foreach($ids_cursos as $row) {
+// 			$id = $row['cursos']['id'];
+// 			$score = $redis_connection->get("curso_".$id."_counter");
+// 			$ranking[] = array($id, $score, $row);
+// 		}
 		
-		// para ordenar o ranking
-		function cmp($a, $b) {
-			if($a[1] == $b[1]) {
-				if($a[0] == $b[0]) {
-					return 0;
-				}
-				return ($a[0] < $b[0]) ? 1 : -1;
-			}
-			return ($a[1] < $b[1]) ? 1 : -1;
-		}
-		usort($ranking, "cmp");
+// 		// para ordenar o ranking
+// 		function cmp($a, $b) {
+// 			if($a[1] == $b[1]) {
+// 				if($a[0] == $b[0]) {
+// 					return 0;
+// 				}
+// 				return ($a[0] < $b[0]) ? 1 : -1;
+// 			}
+// 			return ($a[1] < $b[1]) ? 1 : -1;
+// 		}
+// 		usort($ranking, "cmp");
 
-		// pega os primeiros do ranking
-		$ranking = array_slice($ranking, 0, 5);
+// 		// pega os primeiros do ranking
+// 		$ranking = array_slice($ranking, 0, 5);
 
-		$this->set(compact('ranking'));
+// 		$this->set(compact('ranking'));
 	}
 
 	public function view($id = null) {

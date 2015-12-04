@@ -15,9 +15,9 @@ class AulasController extends AppController {
 		$curso_id = $curso_id[0]['aulas']['curso_pertencente'];
 
 		// ranking
-		$redis_interface = new RedisInterface();
-		$redis_connection = $redis_interface->create_connection();
-		$redis_connection->incr("curso_".$curso_id."_counter");
+// 		$redis_interface = new RedisInterface();
+// 		$redis_connection = $redis_interface->create_connection();
+// 		$redis_connection->incr("curso_".$curso_id."_counter");
 
 		$this->loadModel('Curso');
 		$this->loadModel('Participa');
